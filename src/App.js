@@ -7,6 +7,7 @@ import styled from '@emotion/styled/macro';
 //example of pulling styles in from a different file. 
 import { Logo , Styles} from './App.styles.js';
 import {palette} from './styles/palette';
+import ThemedComponent from './ThemedComponent';
 
 //assigning variables 
 const bottom = 10;
@@ -39,6 +40,8 @@ function App() {
        </header>
        <div css={Styles.title.green}>This is a green style</div>
         <div css={Styles.title.orange}>This is an orange style</div>
+        <ThemedComponent/>
+          
       <Footer>
         
         footer area - styled with emotion styled component
