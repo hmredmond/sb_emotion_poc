@@ -1,23 +1,49 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx , css } from '@emotion/react/macro';
 import logo from './logo.svg';
-import './App.css';
+import styled from '@emotion/styled/macro';
+
+//example of pulling styles in from a different file. 
+import { Logo , Styles} from './App.styles.js';
+import {palette} from './styles/palette';
+
+//assigning variables 
+const bottom = 10;
+const height= 30;
+
+//using and assigning variables from js 
+const theme = "theme1";
+const red = palette[theme].yellow;
+
+const Footer = styled.div`
+  position: absolute;
+  bottom: ${bottom}px;
+  width: 100%;
+  padding: ${height/3}px;
+  height: ${height}px;
+  background-color: ${red};  
+  border:2px solid blue;
+`;
+
+const headerStyle = css`
+  background-color: ${red};
+`;
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     
+      <header css={headerStyle} >
+        <Logo src={logo} alt="logo" />
+       </header>
+       <div css={Styles.title.green}>This is a green style</div>
+        <div css={Styles.title.orange}>This is an orange style</div>
+      <Footer>
+        
+        footer area - styled with emotion styled component
+       
+        </Footer>
     </div>
   );
 }
